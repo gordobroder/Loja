@@ -1,11 +1,10 @@
-<?php 
-
+<?php
 session_start();
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $mensagem = $_POST["mensagem"];
 
-require_once 'PHPMailerAutoload.php';
+require_once("PHPMailerAutoload.php");
 
 $mail = new PHPMailer();
 $mail->isSMTP();
@@ -16,17 +15,17 @@ $mail->SMTPAuth = true;
 $mail->Username = "gustavofelipeschmidt@gmail.com";
 $mail->Password = "Hellrider!13";
 
-$mail->setFrom("gustavofelipeschmidt@gmail.com", "Gustavo Schmidt");
+$mail->setFrom("gustavofelipeschmidt@gmail.com", "Alura Curso PHP e MySQL");
 $mail->addAddress("gustavofelipeschmidt@gmail.com");
 $mail->Subject = "Email de contato da loja";
 $mail->msgHTML("<html>de: {$nome}<br/>email: {$email}<br/>mensagem: {$mensagem}</html>");
 $mail->AltBody = "de: {$nome}\nemail:{$email}\nmensagem: {$mensagem}";
 
 if($mail->send()) {
-    $_SESSION["success"] = "Mensagem enviada com sucesso";
-    header("Location: index.php");
+	$_SESSION["success"] = "Mensagem enviada com sucesso";
+	header("Location: index.php");
 } else {
-    $_SESSION["danger"] = "Erro ao enviar mensagem " . $mail->ErrorInfo;
-    header("Location: contato.php");
+	$_SESSION["danger"] = "Erro ao enviar mensagem " . $mail->ErrorInfo;
+	header("Location: contato.php");
 }
 die();
