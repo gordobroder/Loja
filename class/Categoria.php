@@ -20,5 +20,7 @@ class Categoria {
 	public function setNome($nome) {
 		$this->nome = $nome;
 	}
+
 }
+
 ?>

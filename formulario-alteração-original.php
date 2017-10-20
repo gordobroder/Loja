@@ -3,8 +3,10 @@ require_once("banco-categoria.php");
 require_once("banco-produto.php");
 
 $id = $_GET['id'];
-$produto = buscaProduto($conexao, $id);
-$categorias = listaCategorias($conexao);
+$produtoDao = new ProdutoDao($conexao);
+$produto = $produtoDao->buscaProduto($id);
+$categoriaDao = new CategoriaDao($conexao);
+$categorias = $categoriaDao->listaCategorias;
 $usado = $produto['usado'] ? "checked='checked'" : "";
 ?>            
     <h1>Alterando produto</h1>

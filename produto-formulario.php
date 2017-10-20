@@ -2,24 +2,23 @@
 require_once("cabecalho.php");
 require_once("banco-categoria.php");
 require_once("logica-usuario.php");
-require_once("class/produto.php");
-require_once("class/categoria.php");
 
 verificaUsuario();
 
+
+
 $categoria = new Categoria();
-$categoria->id = 1;
+$categoria->setId(1);
 
-$produto = new Produto();
-$produto->getCategoria = $categoria;
-
-$categorias = listaCategorias($conexao);
+$produto = new Produto("", "", "", $categoria, "");
+$categoriaDao = new CategoriaDao($conexao);
+$categorias = $categoriaDao->listaCategorias();
 
 ?>	
 
 <h1>Formulário de produto</h1>
 <form action="adiciona-produto.php" method="post">
-	<table class="table table-striped table-bordered">
+	<table class="table">
 		
 		<?php include("produto-formulario-base.php"); ?>
 

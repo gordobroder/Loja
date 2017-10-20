@@ -12,11 +12,11 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
-$mail->Username = "gustavofelipeschmidt@gmail.com";
-$mail->Password = "Hellrider!13";
+$mail->Username = "alura.php.e.mysql@gmail.com";
+$mail->Password = "123456";
 
-$mail->setFrom("gustavofelipeschmidt@gmail.com", "Alura Curso PHP e MySQL");
-$mail->addAddress("gustavofelipeschmidt@gmail.com");
+$mail->setFrom("alura.php.e.mysql@gmail.com", "Alura Curso PHP e MySQL");
+$mail->addAddress("alura.php.e.mysql@gmail.com");
 $mail->Subject = "Email de contato da loja";
 $mail->msgHTML("<html>de: {$nome}<br/>email: {$email}<br/>mensagem: {$mensagem}</html>");
 $mail->AltBody = "de: {$nome}\nemail:{$email}\nmensagem: {$mensagem}";
